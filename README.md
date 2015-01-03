@@ -33,6 +33,6 @@ The widget manages the process of correctly installing the SSO client.
 Manual Installation
 -------------------
 
-Upload the 'widgets' subdirectories to your Barebones CMS installation.
+Upload the 'widgets' subdirectory to your Barebones CMS installation.
 
 The widget manages the process of correctly installing the SSO client.
