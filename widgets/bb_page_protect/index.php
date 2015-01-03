@@ -42,7 +42,7 @@
 
 		public function Init()
 		{
-			global $bb_widget, $bb_page, $g_bb_page_protect_sso_client, $g_bb_page_protect_fields, $g_bb_page_protect_has_access, $g_bb_page_protect_options;
+			global $bb_widget, $bb_widget_id, $bb_page, $g_bb_page_protect_sso_client, $g_bb_page_protect_fields, $g_bb_page_protect_has_access, $g_bb_page_protect_options;
 
 			if (!isset($bb_widget->require_login))  $bb_widget->require_login = true;
 			if (!isset($bb_widget->force_load))  $bb_widget->force_load = false;
@@ -58,6 +58,17 @@
 			{
 				// Disable caching for any page that this widget is placed onto.
 				$bb_page["cachetime"] = 0;
+
+				if ($bb_widget->require_login)
+				{
+					BB_DetachWidget($bb_widget_id . "_logged_in");
+					BB_DetachWidget($bb_widget_id . "_logged_out");
+				}
+				else
+				{
+					if (!BB_IsMasterWidgetConnected($bb_widget_id, "logged_in"))  BB_AddMasterWidget($bb_widget_id, "logged_in");
+					if (!BB_IsMasterWidgetConnected($bb_widget_id, "logged_out"))  BB_AddMasterWidget($bb_widget_id, "logged_out");
+				}
 
 				if (!defined("BB_MODE_EDIT"))
 				{

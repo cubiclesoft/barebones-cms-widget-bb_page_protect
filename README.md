@@ -1,4 +1,4 @@
-Barebones CMS - SSO server/client page protection widget
+Barebones CMS - SSO Server/Client Page Protection widget
 ========================================================
 
 Adds a new widget that protects a Barebones CMS page with SSO server/client integration.  Note that protected pages are not cached and therefore experience a reduction in performance.  This widget can require a user to be signed in to see the content or be configured to show different content depending on whether or not the user is signed in.  This widget may be used in conjunction with the Code widget.
